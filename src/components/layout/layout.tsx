@@ -27,7 +27,7 @@ export default function Layout({
         <HStack>
           <HeaderSidebarController onClick={() => setSidebarOpen(!sidebarOpen)} />
             <Link href="/">
-              {/* TODO: ここの部分を実際のものに変更 */}
+              {/* TODO: 実際のものに変更 */}
               Replace it with logo
             </Link>
         </HStack>
