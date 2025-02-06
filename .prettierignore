@@ -1,7 +1,0 @@
-node_modules
-*.log
-*.yml
-.env
-README.md
-package-lock.json
-package.json
