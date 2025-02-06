@@ -14,8 +14,8 @@ export default function Page() {
   return (
     <main className="w-full h-screen min-h-[640px] bg-surface flex justify-center items-center">
       <VStack className="gap-16 pb-16">
-        <VStack className="text-foreground-muted items-center">
-          <span className="font-medium">
+        <VStack className="items-center">
+          <span className="font-medium text-foreground-muted">
             {/* TODO: 実際のものに変更 */}
             Acme Inc.管理ダッシュボード
           </span>
