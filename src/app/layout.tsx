@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import "meme-system-ui/tailwind.css";
 import Layout from "@/components/layout";
+
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={`antialiased`}>
+      <body className={`antialiased ${inter.className}`}>
         <Layout>
           {children}
         </Layout>
