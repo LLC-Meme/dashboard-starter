@@ -24,6 +24,7 @@ import {
   BreadcrumbContainer,
   BreadcrumbItem,
   BreadcrumbSeparator,
+  VSpacer,
 } from "meme-system-ui";
 
 export default function Layout({
@@ -119,7 +120,7 @@ function Content({
 
       <Main sidebarOpen={sidebarOpen}>
         <Breadcrumb />
-        <h1>test</h1>
+        <VSpacer />
         {children}
       </Main>
     </NextThemesProvider>
