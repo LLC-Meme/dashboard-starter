@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "meme-system-ui/tailwind.css";
 import ThemeProvider from "@/components/layout/theme-provider";
+import Layout from "@/components/layout/layout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="ja" suppressHydrationWarning>
       <body className={`antialiased`}>
         <ThemeProvider>
-          {children}
+          <Layout>
+            {children}
+          </Layout>
         </ThemeProvider>
       </body>
     </html>
