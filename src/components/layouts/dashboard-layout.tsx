@@ -40,7 +40,7 @@ export default function DashboardLayout({
       <HeaderContainer className="w-full flex items-center justify-between">
         <HStack>
           <HeaderSidebarController onClick={() => setSidebarOpen(!sidebarOpen)} />
-            <Link href="/">
+            <Link href="/dashboard">
               {/* TODO: 実際のものに変更 */}
               Replace it with logo
             </Link>
