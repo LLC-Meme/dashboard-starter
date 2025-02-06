@@ -21,6 +21,9 @@ import {
   CollapsibleTrigger,
   CollapsibleContent,
   CollapsibleItem,
+  BreadcrumbContainer,
+  BreadcrumbItem,
+  BreadcrumbSeparator,
 } from "meme-system-ui";
 
 export default function Layout({
@@ -115,9 +118,42 @@ function Content({
       </SidebarContainer>
 
       <Main sidebarOpen={sidebarOpen}>
+        <Breadcrumb />
+        <h1>test</h1>
         {children}
       </Main>
     </NextThemesProvider>
+  );
+}
+
+
+function Breadcrumb() {
+
+  const pathname = usePathname();
+  const segments = pathname.split("/").filter(Boolean);
+
+  let accumulatedPath = "";
+
+  const breadcrumbItems = segments.map((segment, index) => {
+    accumulatedPath += `/${segment}`;
+    const label = segment.charAt(0).toUpperCase() + segment.slice(1);
+    return (
+      <React.Fragment key={accumulatedPath}>
+        {index > 0 && <BreadcrumbSeparator />}
+        <BreadcrumbItem
+          href={accumulatedPath}
+          current={index === segments.length - 1}
+        >
+          {label}
+        </BreadcrumbItem>
+      </React.Fragment>
+    );
+  });
+
+  return (
+    <BreadcrumbContainer>
+      {breadcrumbItems}
+    </BreadcrumbContainer>
   );
 }
 
