@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import {
@@ -21,9 +21,6 @@ export default function Layout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { theme, setTheme } = useTheme();
-  useEffect(() => {
-    console.log("theme", theme);
-  }, [theme]);
   return (
     <>
       <HeaderContainer className="w-full flex items-center justify-between">
