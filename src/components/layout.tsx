@@ -96,20 +96,15 @@ function Content({
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupTitle>Group 2</SidebarGroupTitle>
-          <CollapsibleRoot>
-            <CollapsibleTrigger>Page 3</CollapsibleTrigger>
-            <CollapsibleContent>
-              <CustomCollapsibleItem href="/page3-1">
-                Page 3-1
-              </CustomCollapsibleItem>
-              <CustomCollapsibleItem href="/page3-2">
-                Page 3-2
-              </CustomCollapsibleItem>
-              <CustomCollapsibleItem href="/page3-3">
-                Page 3-3
-              </CustomCollapsibleItem>
-            </CollapsibleContent>
-          </CollapsibleRoot>
+          <CustomCollapsible
+            routesMap={[
+              { route: "/page3-1", label: "Page 3-1" },
+              { route: "/page3-2", label: "Page 3-2" },
+              { route: "/page3-3", label: "Page 3-3" },
+            ]}
+          >
+            Page 3
+          </CustomCollapsible>
           <CustomSidebarItem href="/page4">
             Page 4
           </CustomSidebarItem>
@@ -142,14 +137,47 @@ function CustomSidebarItem({
   );
 }
 
+type RoutesMap = {
+  route: string;
+  label: string;
+}[];
+
+function CustomCollapsible({
+  children,
+  routesMap
+}: {
+  children: React.ReactNode;
+  routesMap: RoutesMap;
+}) {
+
+  const pathname = usePathname();
+  const current = routesMap.some(({ route }) => route === pathname);
+  return (
+    <CollapsibleRoot>
+      <CollapsibleTrigger current={current}>
+        {children}
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        {routesMap.map(({ route, label }) => (
+          <CustomCollapsibleItem key={route} href={route} pathname={pathname}>
+            {label}
+          </CustomCollapsibleItem>
+        ))}
+      </CollapsibleContent>
+    </CollapsibleRoot>
+  );
+}
+
+
 function CustomCollapsibleItem({
   children,
   href,
+  pathname,
 }: {
   children: React.ReactNode;
   href: string;
+  pathname: string;
 }) {
-  const pathname = usePathname();
   const current = pathname === href;
   return (
     <CollapsibleItem asChild current={current}>
