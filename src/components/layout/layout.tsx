@@ -11,7 +11,15 @@ import {
   ThemeSwitchDark,
   ThemeSwitchSystem,
   HStack,
-  Main
+  Main,
+  SidebarContainer,
+  SidebarGroup,
+  SidebarGroupTitle,
+  SidebarItem,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+  CollapsibleContent,
+  CollapsibleItem,
 } from "meme-system-ui";
 
 export default function Layout({
@@ -46,6 +54,46 @@ export default function Layout({
           />
         </ThemeSwitchContainer>
       </HeaderContainer>
+
+      {/* TODO: 実際のものに変更 */}
+      <SidebarContainer isOpen={sidebarOpen}>
+        <SidebarGroup>
+          <SidebarGroupTitle>Group 1</SidebarGroupTitle>
+          <SidebarItem asChild>
+            <Link href="/page1">Page 1</Link>
+          </SidebarItem>
+          <SidebarItem asChild>
+            <Link href="/page2">Page 2</Link>
+          </SidebarItem>
+          <SidebarItem asChild>
+            <Link href="/page3">Page 3</Link>
+          </SidebarItem>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupTitle>Group 2</SidebarGroupTitle>
+          <CollapsibleRoot>
+            <CollapsibleTrigger>Page 3</CollapsibleTrigger>
+            <CollapsibleContent>
+              <CollapsibleItem asChild>
+                <Link href="/page3-1">Page 3-1</Link>
+              </CollapsibleItem>
+              <CollapsibleItem asChild>
+                <Link href="/page3-2">Page 3-2</Link>
+              </CollapsibleItem>
+              <CollapsibleItem asChild>
+                <Link href="/page3-3">Page 3-3</Link>
+              </CollapsibleItem>
+            </CollapsibleContent>
+          </CollapsibleRoot>
+          <SidebarItem asChild>
+            <Link href="/page4">Page 4</Link>
+          </SidebarItem>
+          <SidebarItem asChild>
+            <Link href="/page5">Page 5</Link>
+          </SidebarItem>
+        </SidebarGroup>
+      </SidebarContainer>
+
       <Main sidebarOpen={sidebarOpen}>
         {children}
       </Main>
