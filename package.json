@@ -8,9 +8,15 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "npm run lint",
+    "*.{js,jsx,ts,tsx,css,scss}": "npm run format:check"
   },
   "dependencies": {
+    "husky": "^9.1.7",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
