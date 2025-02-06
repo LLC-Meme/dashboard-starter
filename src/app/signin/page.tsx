@@ -8,6 +8,7 @@ import {
   Label,
   LabelText
 } from "meme-system-ui";
+import { signin } from "./actions";
 
 export default function Page() {
   return (
@@ -22,7 +23,7 @@ export default function Page() {
             ログイン
           </PageTitle>
         </VStack>
-        <Form action={"/"} className="flex flex-col gap-4 items-center">
+        <Form action={signin} className="flex flex-col gap-4 items-center">
           <VStack className="w-[400px] gap-8">
             <VStack className="gap-4">
               <Label>
