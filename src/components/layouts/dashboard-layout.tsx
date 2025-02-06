@@ -63,7 +63,7 @@ export default function DashboardLayout({
 
       {/* TODO: 実際のものに変更 */}
       <SidebarContainer isOpen={sidebarOpen}>
-        <CustomSidebarItem href="/">
+        <CustomSidebarItem href="/dashboard">
           Home
         </CustomSidebarItem>
         <SidebarGroup>
