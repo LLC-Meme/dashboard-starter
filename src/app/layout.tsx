@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "meme-system-ui/tailwind.css";
-import Layout from "@/components/layout";
+import DashboardLayout from "@/components/layouts/dashboard-layout";
 
 
 const inter = Inter({
@@ -23,9 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={`antialiased ${inter.className}`}>
-        <Layout>
+        <DashboardLayout>
           {children}
-        </Layout>
+        </DashboardLayout>
       </body>
     </html>
   );

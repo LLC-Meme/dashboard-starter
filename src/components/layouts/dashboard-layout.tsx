@@ -27,7 +27,7 @@ import {
   VSpacer,
 } from "meme-system-ui";
 
-export default function Layout({
+export default function DashboardLayout({
   children
 }: {
   children: React.ReactNode;
