@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "../../node_modules/meme-system-ui/dist/tailwind.css";
+import "meme-system-ui/tailwind.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
