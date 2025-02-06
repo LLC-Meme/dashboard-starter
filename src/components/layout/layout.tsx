@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import {
   HeaderContainer,
@@ -57,40 +58,40 @@ export default function Layout({
 
       {/* TODO: 実際のものに変更 */}
       <SidebarContainer isOpen={sidebarOpen}>
+        <CustomSidebarItem href="/">
+          Home
+        </CustomSidebarItem>
         <SidebarGroup>
           <SidebarGroupTitle>Group 1</SidebarGroupTitle>
-          <SidebarItem asChild>
-            <Link href="/page1">Page 1</Link>
-          </SidebarItem>
-          <SidebarItem asChild>
-            <Link href="/page2">Page 2</Link>
-          </SidebarItem>
-          <SidebarItem asChild>
-            <Link href="/page3">Page 3</Link>
-          </SidebarItem>
+          <CustomSidebarItem href="/page1">
+            Page 1
+          </CustomSidebarItem>
+          <CustomSidebarItem href="/page2">
+            Page 2
+          </CustomSidebarItem>
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupTitle>Group 2</SidebarGroupTitle>
           <CollapsibleRoot>
             <CollapsibleTrigger>Page 3</CollapsibleTrigger>
             <CollapsibleContent>
-              <CollapsibleItem asChild>
-                <Link href="/page3-1">Page 3-1</Link>
-              </CollapsibleItem>
-              <CollapsibleItem asChild>
-                <Link href="/page3-2">Page 3-2</Link>
-              </CollapsibleItem>
-              <CollapsibleItem asChild>
-                <Link href="/page3-3">Page 3-3</Link>
-              </CollapsibleItem>
+              <CustomCollapsibleItem href="/page3-1">
+                Page 3-1
+              </CustomCollapsibleItem>
+              <CustomCollapsibleItem href="/page3-2">
+                Page 3-2
+              </CustomCollapsibleItem>
+              <CustomCollapsibleItem href="/page3-3">
+                Page 3-3
+              </CustomCollapsibleItem>
             </CollapsibleContent>
           </CollapsibleRoot>
-          <SidebarItem asChild>
-            <Link href="/page4">Page 4</Link>
-          </SidebarItem>
-          <SidebarItem asChild>
-            <Link href="/page5">Page 5</Link>
-          </SidebarItem>
+          <CustomSidebarItem href="/page4">
+            Page 4
+          </CustomSidebarItem>
+          <CustomSidebarItem href="/page4">
+            Page 4
+          </CustomSidebarItem>
         </SidebarGroup>
       </SidebarContainer>
 
@@ -98,5 +99,37 @@ export default function Layout({
         {children}
       </Main>
     </>
+  );
+}
+
+function CustomSidebarItem({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  const pathname = usePathname();
+  const current = pathname === href;
+  return (
+    <SidebarItem asChild current={current}>
+      <Link href={href}>{children}</Link>
+    </SidebarItem>
+  );
+}
+
+function CustomCollapsibleItem({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  const pathname = usePathname();
+  const current = pathname === href;
+  return (
+    <CollapsibleItem asChild current={current}>
+      <Link href={href}>{children}</Link>
+    </CollapsibleItem>
   );
 }
