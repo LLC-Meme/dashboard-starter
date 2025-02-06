@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "meme-system-ui/tailwind.css";
-import DashboardLayout from "@/components/layouts/dashboard-layout";
-
+import ThemeProvider from "@/components/layouts/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,9 +22,9 @@ export default function Layout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={`antialiased ${inter.className}`}>
-        <DashboardLayout>
+        <ThemeProvider>
           {children}
-        </DashboardLayout>
+        </ThemeProvider>
       </body>
     </html>
   );

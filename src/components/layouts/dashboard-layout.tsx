@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTheme, ThemeProvider as NextThemesProvider } from "next-themes";
+import { useTheme } from "next-themes";
 import {
   HeaderContainer,
   HeaderSidebarController,
@@ -27,26 +27,8 @@ import {
   VSpacer,
 } from "meme-system-ui";
 
-export default function DashboardLayout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <Content>
-        {children}
-      </Content>
-    </NextThemesProvider>
-  );
-}
 
-function Content({
+export default function DashboardLayout({
   children
 }: {
   children: React.ReactNode;
@@ -54,12 +36,7 @@ function Content({
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
+    <>
       <HeaderContainer className="w-full flex items-center justify-between">
         <HStack>
           <HeaderSidebarController onClick={() => setSidebarOpen(!sidebarOpen)} />
@@ -123,7 +100,7 @@ function Content({
         <VSpacer />
         {children}
       </Main>
-    </NextThemesProvider>
+    </>
   );
 }
 
