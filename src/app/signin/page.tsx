@@ -1,3 +1,4 @@
+import Form from "next/form";
 import {
   Input,
   Button,
@@ -21,7 +22,7 @@ export default function Page() {
             ログイン
           </PageTitle>
         </VStack>
-        <form className="flex flex-col gap-4 items-center">
+        <Form action={"/"} className="flex flex-col gap-4 items-center">
           <VStack className="w-[400px] gap-8">
             <VStack className="gap-4">
               <Label>
@@ -48,7 +49,7 @@ export default function Page() {
               Here is
             </ErrorMessage> */}
           </div>
-        </form>
+        </Form>
       </VStack>
     </main>
   );
