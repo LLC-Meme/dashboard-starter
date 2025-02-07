@@ -40,13 +40,13 @@ export default function DashboardLayout({
   const { theme, setTheme } = useTheme();
   return (
     <>
-      <HeaderContainer className="w-full flex items-center justify-between">
+      <HeaderContainer className="flex items-center justify-between h-24">
         <HStack>
           <HeaderSidebarController onClick={() => setSidebarOpen(!sidebarOpen)} />
-            <Link href="/dashboard">
-              {/* TODO: 実際のものに変更 */}
-              Replace it with logo
-            </Link>
+          <Link href="/dashboard">
+            {/* TODO: 実際のものに変更 */}
+            Replace it with logo
+          </Link>
         </HStack>
         <ThemeSwitchContainer>
           <ThemeSwitchLight
@@ -97,7 +97,7 @@ export default function DashboardLayout({
           </CustomSidebarItem>
         </SidebarGroup>
         <VStack className="h-full justify-end">
-          <Button onClick={signout} variant="danger">
+          <Button onClick={signout} variant="outline">
             ログアウト
           </Button>
         </VStack>
