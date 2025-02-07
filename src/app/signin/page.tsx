@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="w-full h-screen min-h-[640px] bg-surface flex justify-center items-center">
+      <div className="fixed w-screen h-screen inset-0 -z-10 bg-surface" />
       <VStack className="gap-16 pb-16">
         <VStack className="items-center">
           <span className="font-medium text-foreground-muted">
