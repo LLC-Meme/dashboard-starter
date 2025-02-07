@@ -51,9 +51,9 @@ export default function Page() {
             </Button>
           </VStack>
           <div className="h-4">
-            {/* <ErrorMessage>
+            <ErrorMessage>
               Here is
-            </ErrorMessage> */}
+            </ErrorMessage>
           </div>
         </Form>
       </VStack>
