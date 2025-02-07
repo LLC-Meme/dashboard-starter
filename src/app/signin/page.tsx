@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Form from "next/form";
 import {
   Input,
@@ -9,6 +10,10 @@ import {
   LabelText
 } from "meme-system-ui";
 import { signin } from "@/actions/auth";
+
+export const metadata: Metadata = {
+  title: "ログイン"
+};
 
 export default function Page() {
   return (
