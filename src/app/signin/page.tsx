@@ -8,7 +8,7 @@ import {
   Label,
   LabelText
 } from "meme-system-ui";
-import { signin } from "./actions";
+import { signin } from "@/actions/auth";
 
 export default function Page() {
   return (
