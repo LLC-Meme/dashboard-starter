@@ -122,7 +122,7 @@ function Breadcrumb() {
 
   const breadcrumbItems = segments.map((segment, index) => {
     accumulatedPath += `/${segment}`;
-    const label = segment.charAt(0).toUpperCase() + segment.slice(1);
+    const label = segment === "dashboard" ? "ホーム" : segment.charAt(0).toUpperCase() + segment.slice(1);
     return (
       <React.Fragment key={accumulatedPath}>
         {index > 0 && <BreadcrumbSeparator />}
