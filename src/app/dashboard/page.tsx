@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <PageTitle>
-        Dashboard
+        Acme管理画面
       </PageTitle>
     </>
   );
