@@ -51,11 +51,7 @@ export default function Page() {
               ログイン
             </Button>
           </VStack>
-          <div className="h-4">
-            {/* <ErrorMessage>
-              Here is
-            </ErrorMessage> */}
-          </div>
+          <ErrorMessage message={""} />
         </Form>
       </VStack>
     </main>
