@@ -12,7 +12,6 @@ import {
   ThemeSwitchDark,
   ThemeSwitchSystem,
   HStack,
-  VStack,
   Main,
   SidebarContainer,
   SidebarGroup,
@@ -26,9 +25,7 @@ import {
   BreadcrumbItem,
   BreadcrumbSeparator,
   VSpacer,
-  Button,
 } from "meme-system-ui";
-import { signOutAction } from "@/app/actions/auth";
 
 
 export default function DashboardLayout({
@@ -96,11 +93,6 @@ export default function DashboardLayout({
             Page 4
           </CustomSidebarItem>
         </SidebarGroup>
-        <VStack className="h-full justify-end">
-          <Button onClick={signOutAction} variant="outline">
-            ログアウト
-          </Button>
-        </VStack>
       </SidebarContainer>
 
       <Main sidebarOpen={sidebarOpen}>
