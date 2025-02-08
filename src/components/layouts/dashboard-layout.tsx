@@ -28,7 +28,7 @@ import {
   VSpacer,
   Button,
 } from "meme-system-ui";
-import { signout } from "@/actions/auth";
+import { signOutAction } from "@/app/actions/auth";
 
 
 export default function DashboardLayout({
@@ -97,7 +97,7 @@ export default function DashboardLayout({
           </CustomSidebarItem>
         </SidebarGroup>
         <VStack className="h-full justify-end">
-          <Button onClick={signout} variant="outline">
+          <Button onClick={signOutAction} variant="outline">
             ログアウト
           </Button>
         </VStack>
