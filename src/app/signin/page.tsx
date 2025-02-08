@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import Form from "next/form";
 import {
   Input,
@@ -10,12 +11,17 @@ import {
   LabelText
 } from "meme-system-ui";
 import { signInAction } from "../actions/auth";
+import { isSignedIn } from "@/lib/supabase/auth";
 
 export const metadata: Metadata = {
   title: "ログイン"
 };
 
-export default function Page() {
+export default async function Page() {
+  const signedIn = await isSignedIn();
+  if (signedIn) {
+    redirect("/dashboard");
+  }
   return (
     <main className="w-full h-screen min-h-[640px] bg-surface flex justify-center items-center">
       <div className="fixed w-screen h-screen inset-0 -z-10 bg-surface" />
