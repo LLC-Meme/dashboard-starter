@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import {
@@ -8,7 +9,6 @@ import {
   BreadcrumbHome,
   BreadcrumbSeparator,
 } from "meme-system-ui/components";
-import React from "react";
 
 interface Link {
   label: string;
