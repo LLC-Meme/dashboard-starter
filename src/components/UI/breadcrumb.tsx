@@ -26,10 +26,11 @@ export default function Breadcrumb({
 
   return (
     <BreadcrumbContainer>
-      <BreadcrumbHome
-        href="/dashboard"
-        current={pathname === "/dashboard"}
-      />
+      <Link href="/dashboard">
+        <BreadcrumbHome current={pathname === "/dashboard"} asChild>
+          <span />
+        </BreadcrumbHome>
+      </Link>
       {links.map((link, index) => (
         <React.Fragment key={index}>
           <BreadcrumbSeparator />
