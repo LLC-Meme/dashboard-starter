@@ -7,9 +7,9 @@ export default async function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const signedIn = await isSignedIn();
-  if (!signedIn) {
-    redirect("/signin");
-  }
+  // const signedIn = await isSignedIn();
+  // if (!signedIn) {
+  //   redirect("/signin");
+  // }
   return <DashboardLayout>{children}</DashboardLayout>;
 }

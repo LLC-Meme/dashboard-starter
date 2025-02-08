@@ -9,7 +9,7 @@ import {
   ErrorMessage,
   Label,
   LabelText
-} from "meme-system-ui";
+} from "meme-system-ui/components";
 import { signInAction } from "../actions/auth";
 import { isSignedIn } from "@/lib/supabase/auth";
 
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const signedIn = await isSignedIn();
-  if (signedIn) {
-    redirect("/dashboard");
-  }
+  // const signedIn = await isSignedIn();
+  // if (signedIn) {
+  //   redirect("/dashboard");
+  // }
   return (
     <main className="w-full h-screen min-h-[640px] bg-surface flex justify-center items-center">
       <div className="fixed w-screen h-screen inset-0 -z-10 bg-surface" />

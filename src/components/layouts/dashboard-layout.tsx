@@ -25,7 +25,7 @@ import {
   BreadcrumbItem,
   BreadcrumbSeparator,
   VSpacer,
-} from "meme-system-ui";
+} from "meme-system-ui/components";
 
 
 export default function DashboardLayout({
