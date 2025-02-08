@@ -9,7 +9,7 @@ import {
   Label,
   LabelText
 } from "meme-system-ui";
-import { signin } from "@/actions/auth";
+import { signInAction } from "../actions/auth";
 
 export const metadata: Metadata = {
   title: "ログイン"
@@ -29,7 +29,7 @@ export default function Page() {
             ログイン
           </PageTitle>
         </VStack>
-        <Form action={signin} className="flex flex-col gap-4 items-center">
+        <Form action={signInAction} className="flex flex-col gap-4 items-center">
           <VStack className="w-[400px] gap-8">
             <VStack className="gap-4">
               <Label>
@@ -37,6 +37,7 @@ export default function Page() {
                 <Input
                   placeholder="email@example.com"
                   type="email"
+                  name="email"
                 />
               </Label>
               <Label>
@@ -44,6 +45,7 @@ export default function Page() {
                 <Input
                   placeholder="XXXXXXXXXXXXX"
                   type="password"
+                  name="password"
                 />
               </Label>
             </VStack>
