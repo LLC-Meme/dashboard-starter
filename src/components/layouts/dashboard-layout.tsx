@@ -22,12 +22,7 @@ import {
   CollapsibleTrigger,
   CollapsibleContent,
   CollapsibleItem,
-  BreadcrumbContainer,
-  BreadcrumbItem,
-  BreadcrumbSeparator,
-  VSpacer,
-  Button,
-} from "meme-system-ui";
+} from "meme-system-ui/components";
 import { signout } from "@/actions/auth";
 
 
@@ -96,50 +91,12 @@ export default function DashboardLayout({
             Page 4
           </CustomSidebarItem>
         </SidebarGroup>
-        <VStack className="h-full justify-end">
-          <Button onClick={signout} variant="outline">
-            ログアウト
-          </Button>
-        </VStack>
       </SidebarContainer>
 
       <Main sidebarOpen={sidebarOpen}>
-        <Breadcrumb />
-        <VSpacer />
         {children}
       </Main>
     </>
-  );
-}
-
-
-function Breadcrumb() {
-
-  const pathname = usePathname();
-  const segments = pathname.split("/").filter(Boolean);
-
-  let accumulatedPath = "";
-
-  const breadcrumbItems = segments.map((segment, index) => {
-    accumulatedPath += `/${segment}`;
-    const label = segment === "dashboard" ? "ホーム" : segment.charAt(0).toUpperCase() + segment.slice(1);
-    return (
-      <React.Fragment key={accumulatedPath}>
-        {index > 0 && <BreadcrumbSeparator />}
-        <BreadcrumbItem
-          href={accumulatedPath}
-          current={index === segments.length - 1}
-        >
-          {label}
-        </BreadcrumbItem>
-      </React.Fragment>
-    );
-  });
-
-  return (
-    <BreadcrumbContainer>
-      {breadcrumbItems}
-    </BreadcrumbContainer>
   );
 }
 

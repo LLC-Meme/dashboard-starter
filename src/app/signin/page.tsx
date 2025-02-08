@@ -8,7 +8,7 @@ import {
   ErrorMessage,
   Label,
   LabelText
-} from "meme-system-ui";
+} from "meme-system-ui/components";
 import { signin } from "@/actions/auth";
 
 export const metadata: Metadata = {

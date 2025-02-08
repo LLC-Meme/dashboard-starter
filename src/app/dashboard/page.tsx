@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { PageTitle } from "meme-system-ui";
+import { PageTitle } from "meme-system-ui/components";
 
 export const metadata: Metadata = {
   title: "ホーム"
